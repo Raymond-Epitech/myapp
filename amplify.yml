@@ -1,0 +1,17 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - cd myapp && npm install
+    build:
+      commands:
+        - cd myapp && npm run build
+  artifacts:
+    baseDirectory: /myapp/dist
+    files:
+      - 'myapp/**/*'
+  cache:
+    paths:
+      - myapp/.npm/**/*
+      - myapp/node_modules/**/*
